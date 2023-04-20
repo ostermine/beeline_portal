@@ -34,7 +34,7 @@ class Abonent(BaseModel):
     def from_beeline_struct(cls, beeline_struct: dict) -> 'Abonent':
         return cls(
             beeline_struct['userId'],
-            beeline_struct['phone'],
+            # beeline_struct['phone'],
             beeline_struct.get('firstName', 'none'),
             beeline_struct['lastName'],
             beeline_struct.get('extension'),
@@ -76,24 +76,24 @@ class Number(BaseModel):
 
 @dataclass
 class SubscriptionRequest(BaseModel):
-    pattern: str
-    expires: int
+    # pattern: str
+    # expires: int
     subscription_type: str
     url: str
 
     @classmethod
     def from_beeline_struct(cls, beeline_struct: dict) -> 'SubscriptionRequest':
         return cls(
-            beeline_struct['pattern'],
-            beeline_struct['expires'],
+            # beeline_struct['pattern'],
+            # beeline_struct['expires'],
             beeline_struct['subscriptionType'],
             beeline_struct['url'],
         )
 
     def to_beeline_struct(self) -> dict:
         return {
-            'pattern': self.pattern,
-            'expires': self.expires,
+            # 'pattern': self.pattern,
+            # 'expires': self.expires,
             'subscriptionType': self.subscription_type,
             'url': self.url,
         }
